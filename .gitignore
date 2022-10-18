@@ -1,0 +1,12 @@
+# ignore tfvars
+*.tfvars
+
+# ignore hcl
+*.hcl
+
+# ignore tfstate
+*.tfstate
+*.backup
+
+# ignore .terraform directory
+.terraform/
