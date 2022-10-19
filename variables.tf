@@ -53,7 +53,7 @@ variable "fgtsku" {
   type = map
   default = {
     byol = "fortinet_fg-vm"
-    payg = "ffortinet_fg-vm_payg_2022"
+    payg = "fortinet_fg-vm_payg_2022"
   }
 }
 
