@@ -47,7 +47,7 @@ resource "azurerm_virtual_machine" "branchfgtvm" {
     computer_name  = "branchfgtvm"
     admin_username = var.adminusername
     admin_password = var.adminpassword
-    custom_data    = templatefile("${path.module}/fgt2.conf", {type = var.license_type, license_file = var.license, 
+    custom_data    = templatefile("${path.module}/fgt2.conf", {type = var.license_type, license_file = var.license2, 
             privateip = azurerm_network_interface.branchfgtport1.private_ip_address, server1ip = azurerm_network_interface.branchServerNIC1.private_ip_address})
   }
 

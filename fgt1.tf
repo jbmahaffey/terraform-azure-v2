@@ -45,7 +45,7 @@ resource "azurerm_virtual_machine" "customfgtvm" {
     computer_name  = "hub-fgtvm"
     admin_username = var.adminusername
     admin_password = var.adminpassword
-    custom_data    = templatefile("${path.module}/fgt1.conf", {type = var.license_type, license_file = var.license, 
+    custom_data    = templatefile("${path.module}/fgt1.conf", {type = var.license_type, license_file = var.license1, 
             privateip = azurerm_network_interface.fgtport1.private_ip_address, server1ip = azurerm_network_interface.ServerNIC1.private_ip_address,
             server2ip = azurerm_network_interface.Server2NIC1.private_ip_address})
   }
@@ -66,11 +66,11 @@ resource "azurerm_virtual_machine" "customfgtvm" {
 
 # If this is the first Fortinet Fortigate deployed, uncomment the lines below
 
-# resource "azurerm_marketplace_agreement" "fortinet" {
-#   publisher = var.publisher
-#   plan = var.license_type == "byol" ? var.fgtsku["byol"] : var.fgtsku["payg"]
-#   offer = var.fgtoffer
-# }
+resource "azurerm_marketplace_agreement" "fortinet" {
+  publisher = var.publisher
+  plan = var.license_type == "byol" ? var.fgtsku["byol"] : var.fgtsku["payg"]
+  offer = var.fgtoffer
+}
 
 resource "azurerm_virtual_machine" "fgtvm" {
   count                        = var.custom ? 0 : 1

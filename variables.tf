@@ -108,7 +108,13 @@ variable "bootstrap-fgtvm" {
 }
 
 // license file for the fgt
-variable "license" {
+variable "license1" {
+  // Change to your own byol license file, license.lic
+  type    = string
+  default = "license.txt"
+}
+
+variable "license2" {
   // Change to your own byol license file, license.lic
   type    = string
   default = "license.txt"
