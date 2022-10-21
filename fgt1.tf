@@ -113,7 +113,7 @@ resource "azurerm_virtual_machine" "fgtvm" {
     computer_name  = "hub-fgtvm"
     admin_username = var.adminusername
     admin_password = var.adminpassword
-    custom_data    = templatefile("${path.module}/fgt1.conf", {type = var.license_type, license_file = var.license, 
+    custom_data    = templatefile("${path.module}/fgt1.conf", {type = var.license_type, license_file = var.license1, 
             privateip = azurerm_network_interface.fgtport1.private_ip_address, server1ip = azurerm_network_interface.ServerNIC1.private_ip_address,
             server2ip = azurerm_network_interface.Server2NIC1.private_ip_address})
   }

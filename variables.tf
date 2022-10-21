@@ -34,7 +34,7 @@ variable "custom_image_resource_group_name" {
 // License Type to create FortiGate-VM
 // Provide the license type for FortiGate-VM Instances, either byol or payg.
 variable "license_type" {
-  default = "payg"
+  default = "byol"
 }
 
 variable "publisher" {
@@ -59,7 +59,7 @@ variable "fgtsku" {
 
 variable "fgtversion" {
   type    = string
-  default = "7.0.8"
+  default = "7.2.2"
 }
 
 variable "adminusername" {
@@ -111,11 +111,11 @@ variable "bootstrap-fgtvm" {
 variable "license1" {
   // Change to your own byol license file, license.lic
   type    = string
-  default = "license.txt"
+  default = "FGVM01TM22001560.lic"
 }
 
 variable "license2" {
   // Change to your own byol license file, license.lic
   type    = string
-  default = "license.txt"
+  default = "FGVM01TM22001561.lic"
 }
